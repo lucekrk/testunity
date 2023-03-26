@@ -1,9 +1,16 @@
 <?php
-	$title = $_GET["title"];
-	$content = $_GET["content"];
-	$filename = strtolower(str_replace(" ", "-", $title)) . ".html";
-	$file = fopen($filename, "w");
-	fwrite($file, $content);
-	fclose($file);
-	echo $filename;
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $pageName = $_POST['pageName'];
+    $pageContent = $_POST['pageContent'];
+
+    if (!empty($pageName) && !empty($pageContent)) {
+        $fileName = str_replace(' ', '-', strtolower($pageName)) . '.html';
+        $filePath = $_SERVER['DOCUMENT_ROOT'] . '/' . $fileName;
+        $fileHandle = fopen($filePath, 'w');
+        fwrite($fileHandle, $pageContent);
+        fclose($fileHandle);
+        header('Location: /' . $fileName);
+        exit;
+    }
+}
 ?>

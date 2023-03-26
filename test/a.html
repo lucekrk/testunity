@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Tworzenie nowej strony</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="script.js"></script>
-  </head>
-  <body>
-    <form>
-      <label for="title">Tytuł strony:</label>
-      <input type="text" id="title" name="title" />
-      <label for="content">Zawartość strony:</label>
-      <textarea id="content" name="content"></textarea>
-      <button type="button" id="save-button">Zapisz</button>
-    </form>
-  </body>
+<head>
+	<title>Tworzenie nowych stron</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<h1>Tworzenie nowych stron</h1>
+	<form action="/save.php" method="POST">
+		<label for="pageName">Nazwa strony:</label>
+		<input type="text" name="pageName" id="pageName"><br>
+		<label for="pageContent">Treść strony:</label><br>
+		<textarea name="pageContent" id="pageContent" rows="10" cols="50"></textarea><br>
+		<input type="submit" value="Zapisz">
+	</form>
+</body>
 </html>
